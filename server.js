@@ -6,7 +6,7 @@ var app=express();
 app.use(express.static(__dirname+'/public'));
 
 var ip=process.env.OPENSHIFT_NODEJS_IP;
-var port=process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3002;
+var port=3002;
 
 app.listen(3000);
 
