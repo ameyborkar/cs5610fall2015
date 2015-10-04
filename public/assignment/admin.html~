@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forms</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link href = "css/style.css" rel = "stylesheet">
 </head>
-<body >
+<body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -34,32 +34,39 @@
 				<ul class="nav nav-sidebar">
 					<li><a href="./home.html">Home <span class="sr-only">(current)</span></a></li>
 					<li><a href="./profile.html">Profile</a></li>
-					<li><a href="./admin.html">Admin</a></li>
-					<li class="active"><a href="./forms.html">Forms</a></li>
+					<li class="active"><a href="./admin.html">Admin</a></li>
+					<li><a href="./forms.html">Forms</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h1 class="page-header">Forms</h1>
-		
-		<ul class="nav nav-tabs">
-			<li class="active" role="presentation"><a href="#">Forms</a></li>
-			<li role="presentation"><a href="form-fields.html">Fields</a></li>
-		</ul>
-
+		<h1 class="page-header">Admin</h1>
+		<h3>Users</h3>
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
 					<th>
 						<span class="glyphicon glyphicon-triangle-bottom"></span>
-						Form Name
+						Username
+					</th>
+					<th>Password</th>
+					<th>
+						<span class="glyphicon glyphicon-triangle-bottom"></span>
+						Role
 					</th>
 					<th>Action</th>
+					<!-- </thead> -->
 					<tr>
 						<td>
-							<input type="text" name="name" placeholder="name" class="form-control">
+							<input type="text" name="username" placeholder="username" class="form-control">
+						</td>
+						<td>
+							<input type="text" name="password" placeholder="password" class="form-control">
+						</td>
+						<td>
+							<input type="text" name="role" placeholder="role" class="form-control">
 						</td>
 						<td class="no-wrap">
 							<a href="#" class="btn btn-default">
@@ -71,48 +78,51 @@
 						</td>
 					</tr>
 				</thead>
-				<tr>
-					<td>
-						<a href="form-fields.html">Registration Form</a>
-					</td>
-					<td>
-						<a href="#">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
-						<a href="#">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a href="form-fields.html">Contact List</a>
-					</td>
-					<td>
-						<a href="#">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
-						<a href="#">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<a href="form-fields.html">To Do List</a>
-					</td>
-					<td>
-						<a href="#">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
-						<a href="#">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</a>
-					</td>
-				</tr>
+				<tbody>
+					<tr>
+						<td>alice</td>
+						<td></td>
+						<td>student</td>
+						<td>
+							<a href="#">
+								<span class="glyphicon glyphicon-pencil"></span>
+
+							</a>
+							<a href="#">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>bob</td>
+						<td></td>
+						<td>faculty | admin</td>
+						<td>
+							<a href="#">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+							<a href="#">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>charlie</td>
+						<td></td>
+						<td></td>
+						<td>
+							<a href="#">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+							<a href="#">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>
