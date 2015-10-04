@@ -105,11 +105,3 @@ body {
   border-radius: 50%;
 }
 
-
-/*
- * Custom CSS
- */
-
-.no-wrap {
-  white-space: nowrap;
-}
