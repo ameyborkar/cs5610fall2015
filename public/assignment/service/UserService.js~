@@ -75,16 +75,6 @@
                 }
             }
         }
-/*
-        function updateUser(id, user, callback) {
-            for (var index in users) {
-                if (users[index].id == id) {
-                    break;
-                }
-            }
-            users.splice(index, 1);
-            users.push(user);
-            callback(user);
-        }*/
-    }
+
+    
 }) ();
