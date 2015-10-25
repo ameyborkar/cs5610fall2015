@@ -1,38 +1,32 @@
+"use strict";
 (function(){
-
-	'use strict';
-	
-	//Creating "HelloWorldController" controller -> normally create a separate files for controller
 	angular
-	.module(myFormApp.applicationModuleName)
-	.config(MyAppFunction)
-
-	function MyAppFunction($routeProvider){
+		.module("FormBuilderApp")
+		.config(Configure);
+		
+	function Configure($routeProvider) {
 		$routeProvider
-		.when("/", {
-			/*templateUrl : "/assignment/home/home.view.html" */
-			redirectTo : "/home" 
-		})
-		.when("/home", {
-			templateUrl : "/assignment/home/home.view.html" 
-		})
-		.when("/login", {
-			templateUrl : "/assignment/login/login.view.html" 
-		})
-		.when("/register", {
-			templateUrl : "/assignment/register/register.view.html" 
-		})
-		.when("/profile", {
-			templateUrl : "/assignment/profile/profile.view.html" 
-		})
-		.when("/form", {
-			templateUrl : "/assignment/form/form.view.html" 
-		})
-		.when("/admin", {
-			templateUrl : "/assignment/admin/admin.view.html" 
-		})
-		.otherwise({
-			redirectTo : "/" 
-		})
-	};
-})();
+			.when("/home", {
+				templateUrl: "home/home.view.html"
+			})
+			.when("/profile", {
+				templateUrl: "profile/profile.view.html",
+				controller: "ProfileController"
+			})
+			.when("/forms", {
+				templateUrl: "form/form.view.html",
+				controller: "FormController"
+			})
+			.when("/register", {
+				templateUrl: "register/register.view.html",
+				controller: "RegisterController"
+			})
+			.when("/login", {
+				templateUrl: "login/login.view.html",
+				controller: "LoginController"
+			})
+			.otherwise({
+				redirectTo: "/home"
+			});
+	}
+}) ();
