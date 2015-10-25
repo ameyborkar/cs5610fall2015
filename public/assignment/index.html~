@@ -10,6 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="app.js"></script>
 		<script src="config.js"></script>
+		<script src="MainController.js"></script>
 		<script src="header/header.controller.js"></script>
 		<script src="sidebar/sidebar.controller.js"></script>
 		<script src="service/UserService.js"></script>
@@ -19,7 +20,7 @@
 		<script src="login/login.controller.js"></script>
 		<script src="form/form.controller.js"></script>
 	</head>
-	<body ng-controller="HeaderController">
+	<body ng-controller="MainController">
 		<div class = "container">
 			<div class = "row">
 				<div ng-include = "'header/header.view.html'"></div>
