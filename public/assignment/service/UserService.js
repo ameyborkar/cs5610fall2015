@@ -39,7 +39,7 @@
         function findAllUsers(callback) {
             callback(users);
             return;
-9        }
+        }
 
         function createUser(newUser, callback) {
             var user = {
@@ -51,7 +51,7 @@
             users.push(user);
             callback(user);
         }
-3 CS 
+
         function deleteUserById(id, callback) {
             for (var index in users) {
                 if (users[index].id == id) {
