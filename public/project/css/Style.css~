@@ -1,0 +1,17 @@
+
+body {
+ color: #5a5a5a;
+}
+
+
+.left-padding {
+    padding-left: 5em;
+}
+
+.left-padding-small {
+    padding-left: 2em;
+}
+
+.comment-text {
+    word-wrap: break-word;
+}
