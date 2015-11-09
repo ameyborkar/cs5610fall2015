@@ -5,25 +5,21 @@ app.config(function ($routeProvider) {
     $routeProvider
      
     .when('/home', {
-        templateUrl: 'views/BookList.html',
+        templateUrl: 'views/Books/bookList.view.html',
         controller: ''
     })
     .when('/login', {
-        templateUrl: 'views/Login.html',
+        templateUrl: 'views/Login/login.view.html',
         controller: ''
     })
     .when('/register', {
-        templateUrl: 'views/Registration.html',
+        templateUrl: 'views/Register/registration.view.html',
         controller: ''
     })
     .when('/profile', {
-        templateUrl: 'views/Profile.html',
+        templateUrl: 'views/Profile/profile.view.html',
         controller: '',
         
-    })
-    .when('/book', {
-        templateUrl: 'views/Book.html',
-        controller: ''
     })
     .otherwise({
         redirectTo: '/home'
