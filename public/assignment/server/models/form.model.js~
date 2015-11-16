@@ -32,6 +32,10 @@ module.exports = function(uuid) {
 		return null;
 	}
 	
+	function findAllForms() {
+		return forms;
+	}
+	
 	function findFormById(formId) {
 		for (var i = 0; i < forms.length; i++) {
 			if (forms[i].id == formId) {
@@ -39,10 +43,6 @@ module.exports = function(uuid) {
 			}
 		}
 		return null;
-	}
-
-	function findAllForms() {
-		return forms;
 	}
 	
 	function updateForm(formId, form) {

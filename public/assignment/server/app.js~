@@ -1,6 +1,7 @@
 
 module.exports = function(app) {
 	var uuid = require('node-uuid');
+
 	var userModel = require('./models/user.model.js')(uuid);
 	require('./services/user.service.js')(app, userModel);
 	
