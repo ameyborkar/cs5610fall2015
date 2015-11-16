@@ -1,81 +1,75 @@
-var users = require("./user.mock.json");
+var users = require('./user.mock.json');
 
-module.exports = function(app) {
-    var api = {
-        createUser: createUser,
-        findAllUsers: findAllUsers,
-        findUserById: findUserById,
-        updateUser: updateUser,
-        deleteUser: deleteUser,
-        findUserByUsername: findUserByUsername,
-        findUserByCredentials: findUserByCredentials
-    };
-    return api;
-
-    function createUser(userObj) {
-        if (!findUserByUsername(userObj.username)) { //checks if username already exists
-            users.push(userObj);
-            return users;
-        } else {
-            return null;
-        }
-    }
-
-    function findAllUsers() {
-        return users;
-    }
-
-    function findUserById(id) {
-        for (var i in users) {
-            var user = users[i];
-            if (user.id == id) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    function updateUser(id, userObj) {
-        for (var i in users) {
-            var user = users[i];
-            if (user.id == id) {
-                if (user.username == userObj.username || !findUserByUsername(userObj.username)) {
-                    users.splice(i, 1, userObj);
-                    return users;
-                }
-            }
-        }
-        return null;
-    }
-
-    function deleteUser(id) {
-        for (var i in users) {
-            var user = users[i];
-            if (user.id == id) {
-                users.splice(i, 1)
-                break; //to exit loop
-            }
-        }
-        return users;
-    }
-
-    function findUserByUsername(username) {
-        for (var i in users) {
-            var user = users[i];
-            if (user.username == username) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    function findUserByCredentials(credObj) {
-        for (var i in users) {
-            var user = users[i];
-            if (user.username == credObj.username && user.password == credObj.password) {
-                return user;
-            }
-        }
-        return null;
-    }
-}
+module.exports = function(uuid) {
+	var api = {
+		createUser: createUser,
+		findAllUsers: findAllUsers,
+		findUserById: findUserById,
+		updateUser: updateUser,
+		deleteUser: deleteUser,
+		findUserByUsername: findUserByUsername,
+		findUserByCredentials: findUserByCredentials
+	};
+	return api;
+	
+	function createUser(user) {
+		user.id = uuid.v1();
+		users.push(user);
+		return users;
+	}
+	
+	function findAllUsers() {
+		return users;
+	}
+	
+	function findUserById(userId) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].id == userId) {
+				return users[i];
+			}
+		}
+		return null;
+	}
+	
+	function updateUser(userId, user) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].id == userId) {
+				users[i].firstName = user.firstName;
+				users[i].lastName = user.lastName;
+				users[i].username = user.username;
+				users[i].password = user.password;
+				users[i].email = user.email;
+				break;
+			}
+		}
+		return users;
+	}
+	
+	function deleteUser(userId) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].id == userId) {
+				users.splice(i, 1);
+			}
+		}
+		return users;
+	}
+	
+	function findUserByUsername(username) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].username == username) {
+				return users[i];
+			}
+		}
+		return null;
+	}
+	
+	function findUserByCredentials(credentials) {
+		for (var i = 0; i < users.length; i++) {
+			if (users[i].username == credentials.username && 
+				users[i].password == credentials.password) {
+				return users[i];
+			}
+		}
+		return null;
+	}
+};

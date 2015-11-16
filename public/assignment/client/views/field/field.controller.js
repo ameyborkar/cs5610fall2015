@@ -1,92 +1,65 @@
+"use strict";
+
 (function() {
-    "use strict";
-
-    angular
-        .module("FormBuilderApp")
-        .controller("FieldController", FieldController);
-
-    function FieldController(FieldService, $routeParams) {
-        var model = this;
-        var userId = $routeParams["userId"];
-        var formId = $routeParams["formId"];
-        init();
-
-        model.addField = addField;
-        model.deleteField = deleteField;
-        model.editField = editField;
-        model.copyField = copyField;
-
-        function init() {
-            FieldService
-                .getFieldsForForm(formId)
-                .then(function(fields) {
-                    model.fields = fields;
-                });
-        }
-
-        function addField(fieldType) {
-            var newField = {"id": null, "type": fieldType};
-
-            if (fieldType == "TEXT" || fieldType == "TEXTAREA") {
-                newField.label = "New Text Field";
-                newField.placeholder = "New Field";
-            } else if (fieldType == "DATE") {
-                newField.label = "New Date Field";
-            } else if (fieldType == "DROPDOWN") {
-                newField.label = "New Dropdown";
-                newField.options = [
-                    {"label": "Option 1", "value": "OPTION_1"},
-                    {"label": "Option 2", "value": "OPTION_2"},
-                    {"label": "Option 3", "value": "OPTION_3"}
-                ];
-            } else if (fieldType == "CHECKBOX") {
-                newField.label = "New Checkboxes";
-                newField.options = [
-                    {"label": "Option A", "value": "OPTION_A"},
-                    {"label": "Option B", "value": "OPTION_B"},
-                    {"label": "Option C", "value": "OPTION_C"}
-                ];
-            } else { //fieldType == "RADIO"
-                newField.label = "New Radio Buttons";
-                newField.options = [
-                    {"label": "Option X", "value": "OPTION_X"},
-                    {"label": "Option Y", "value": "OPTION_Y"},
-                    {"label": "Option Z", "value": "OPTION_Z"}
-                ];
-            }
-
-            FieldService
-                .createFieldForForm(formId, newField)
-                .then(function(fields) {
-                    model.fields = fields;
-                });
-        }
-
-        function deleteField(field) {
-            FieldService
-                .deleteFieldFromForm(formId, field.id)
-                .then(function(fields) {
-                    console.log("Deleted field.");
-                    model.fields = fields;
-                });
-        }
-
-        function editField(field) {
-            FieldService
-                .updateField(formId, field.id, field)
-                .then(function(fields) {
-                    console.log("Updated field.");
-                    model.fields = fields;
-                });
-        }
-
-        function copyField(field) {
-            FieldService
-                .getFieldForForm(formId, field.id)
-                .then(function(fields) {
-                    console.log("Copied field.");
-                    model.fields = fields;
-                });
-        }
-    }
+	angular
+		.module("FormBuilderApp")
+		.controller("FieldController", FieldController);
+		
+	function FieldController($scope, $routeParams, FieldService) {
+		var model = this;
+		
+		var userId = $routeParams.userId;
+		var formId = $routeParams.formId;
+		
+		model.addField = addField;
+		model.deleteField = deleteField;
+		
+		setFields();
+		
+		function setFields() {
+			FieldService.getFieldsForForm(formId).then(function(response) {
+				model.fields = response;
+			});
+		}
+		
+		function addField(fieldType) {
+			var newField;
+			if (fieldType == 'TEXT') {
+				newField = {"id": null, "label": "New Text Field", type: "TEXT", "placeholder": "new Field"};
+			} else if (fieldType == 'TEXTAREA'){
+				newField = {"id": null, "label": "New Text Field", "type": "TEXTAREA", "placeholder": "New Field"};
+			} else if (fieldType == 'DATE'){
+				newField = {"id": null, "label": "New Date Field", "type": "DATE"};
+			} else if (fieldType == 'OPTIONS'){
+				newField = {"id": null, "label": "New Dropdown", "type": "OPTIONS", "options": [
+								{"label": "Option 1", "value": "OPTION_1"},
+								{"label": "Option 2", "value": "OPTION_2"},
+								{"label": "Option 3", "value": "OPTION_3"}
+							]};
+			} else if (fieldType == 'CHECKBOXES'){
+				newField = {"id": null, "label": "New Checkboxes", "type": "CHECKBOXES", "options": [
+								{"label": "Option A", "value": "OPTION_A"},
+								{"label": "Option B", "value": "OPTION_B"},
+								{"label": "Option C", "value": "OPTION_C"}
+							]};
+			} else if (fieldType == 'RADIOS'){
+				newField = {"id": null, "label": "New Radio Buttons", "type": "RADIOS", "options": [
+								{"label": "Option X", "value": "OPTION_X"},
+								{"label": "Option Y", "value": "OPTION_Y"},
+								{"label": "Option Z", "value": "OPTION_Z"}
+							]};
+			}
+			FieldService.createFieldForForm(formId, newField).then(function(response) {
+				setFields();
+			});
+		}
+		
+		function deleteField(fieldIndex) {
+			var fieldId = model.fields[fieldIndex].id;
+			console.log("Trying to delete field " + fieldId + " at index " + fieldIndex);
+			FieldService.deleteFieldFromForm(formId, fieldId).then(function(response) {
+				setFields();
+			});
+		}
+	}
 })();
