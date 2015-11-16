@@ -1,14 +1,14 @@
-#!/bin/env node
-//  OpenShift sample Node application
 var express = require('express');
-var app=express();
+var app = express();
+var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var ip=process.env.OPENSHIFT_NODEJS_IP;
-var port=process.env.OPENSHIFT_NODEJS_PORT||3002;
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var port      = process.env.OPENSHIFT_NODEJS_PORT || 3002;
 
-app.listen(port,ip);
+require("./public/assignment/server/app.js")(app);
 
-
-
+app.listen(port, ipaddress);
