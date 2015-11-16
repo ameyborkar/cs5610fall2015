@@ -1,65 +1,74 @@
-"use strict";
-
 (function() {
-	angular
-		.module("FormBuilderApp")
-		.controller("FormController", FormController);
-		
-	function FormController($rootScope, FormService) {
-		var model = this;
-		
-		var currentUser = $rootScope.user;
-		model.currentUser = currentUser;
-		model.selectedFormIndex = -1;
-		
-		//Functions that are available to the UI
-		model.addForm = addForm;
-		model.updateForm = updateForm;
-		model.deleteForm = deleteForm;
-		model.selectForm = selectForm;
+    "use strict";
 
-		//Find and set all the forms for the current user
-		setUserForms();
-		
-		function setUserForms(){
-			FormService.findAllFormsForUser(currentUser.id).then(function(response){
-				model.forms = response;
-			});
-		}
-		
-		function addForm() {
-			var newForm = {title : model.title, fields: []};
-			FormService.createFormByUser(currentUser.id, newForm).then(function(response){
-				setUserForms();
-				resetSelectedForm();
-			});
-		}
+    angular
+        .module("FormBuilderApp")
+        .controller("FormController", FormController);
 
-		function updateForm() {
-			var selectedForm = model.forms[model.selectedFormIndex];
-			selectedForm.title = model.title;
-			FormService.updateFormById(selectedForm.id, selectedForm).then(function(response){
-				setUserForms();
-				resetSelectedForm();
-			});
-		}
-		
-		function deleteForm(index) {
-			FormService.deleteFormById(model.forms[index].id).then(function(response){
-				setUserForms();
-			});
-		}
-		
-		function selectForm(index) {
-			model.selectedFormIndex = index;
-			model.title = model.forms[index].title;
-		}
-		
-		function resetSelectedForm(){
-			model.selectedFormIndex = -1;
-			model.title = "";
-		}
-		
-	}
+    function FormController(FormService, $rootScope) {
+        var model = this;
+        var user = $rootScope.user;
+        if (user) {
+            var userId = user.id;
+            init();
+        } else {
+            alert("User forms not found. Log in first!");
+        }
 
+        model.addForm = addForm;
+        model.updateForm = updateForm;
+        model.deleteForm = deleteForm;
+        model.selectForm = selectForm;
+
+        function init() {
+            FormService
+                .findAllFormsForUser(userId)
+                .then(function(forms) {
+                    model.forms = forms;
+                });
+        }
+
+        function addForm(title) {
+            var form = {title: title};
+            FormService
+                .createFormForUser(userId, form)
+                .then(function(forms) {
+                    if (!forms) {
+                        alert("Form title already exists.");
+                    } else {
+                        console.log("New form created.");
+                        model.forms = forms;
+                    }
+                });
+        }
+
+        function updateForm(title) {
+            var form = {title: title, userId: user.id};
+            FormService
+                .updateFormById(model.selectedForm.id, form)
+                .then(function(forms) {
+                    if (!forms) {
+                        alert("Form title already exists.");
+                    } else {
+                        console.log("Form updated.");
+                        model.forms = forms;
+                    }
+                });
+        }
+
+        function deleteForm(index) {
+            var formId = model.forms[index].id;
+            console.log("Form deleted.");
+            FormService
+                .deleteFormById(formId)
+                .then(function(forms) {
+                    model.forms = forms;
+                });
+        }
+
+        function selectForm(index) {
+            model.selectedForm = model.forms[index];
+            model.title = model.forms[index].title;
+        }
+    }
 })();

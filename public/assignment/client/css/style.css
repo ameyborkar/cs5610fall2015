@@ -1,39 +1,50 @@
-.text_left {
-	text-align: left;
+/* COLOUR CUSTOMISATION */
+.fire {
+  background-color: #f05574;
+  color: #fff;
 }
 
-.top_margin {
-	margin-top: 10px;
+.fire:hover {
+  background-color: #a83b51;
+  color: #fff;
 }
 
-.btn-transparent {
-  	border:0px solid transparent;
+.wood {
+  background-color: #e1b560;
+  color: #fff;
 }
 
-.box-1 {
-	border: 1px solid lightgray;
-	padding: 5px;
+.wood:hover {
+  background-color: #9d7e43;
+  color: #fff;
 }
 
-.box-2 {
-	border: 1px solid lightgray;
-  padding-bottom: 35px;
-  padding-top: 10px;
-  padding-right: 35px;
+.earth {
+  background-color: #4fc682;
+  color: #fff;
 }
 
-.move-right {
-  padding-left: 35px;
+.earth:hover {
+  background-color: #3d9a65;
+  color: #fff;
 }
 
-.form-fields {
-  list-style-type: none;
+.water {
+  background-color: #4db1ce;
+  color: #fff; 
 }
 
-hr {
-  clear:left;
-  margin-top: 60px;
-  border-style: solid;
-  border-width: 2px;
-  width: 95%;
+.water:hover {
+  background-color: #0190BA;
+  color: #fff;  
+}
+
+.metal {
+  background-color: #888;
+  color: #fff;
+}
+
+.metal:hover {
+  background-color: #767676;
+  color: #fff;
 }

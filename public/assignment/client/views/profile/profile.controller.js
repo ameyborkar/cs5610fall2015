@@ -1,31 +1,38 @@
-"use strict";
-
 (function() {
-	angular
-		.module("FormBuilderApp")
-		.controller("ProfileController", ProfileController);
-		
-	function ProfileController($rootScope, UserService) {
-		var model = this;
-		var currentUser = $rootScope.user;
-		
-		model.update = update;
-		model.username = currentUser.username;
-		model.password = currentUser.password;
-		model.firstName = currentUser.firstName;
-		model.lastName = currentUser.lastName;
-		model.email = currentUser.email;
-		
+    "use strict";
 
-		function update() {
-			currentUser.username = model.username;
-			currentUser.password = model.password;
-			currentUser.firstName = model.firstName;
-			currentUser.lastName = model.lastName;
-			currentUser.email = model.email;
-			$rootScope.user = currentUser;
-			
-			UserService.updateUser(currentUser.id, currentUser)
-		}
-	}
+    angular
+        .module("FormBuilderApp")
+        .controller("ProfileController", ProfileController);
+
+    function ProfileController(UserService, $rootScope) {
+        var model = this;
+        if ($rootScope.user) {
+            model.user = $rootScope.user;
+        } else {
+            alert("User information not found. Log in first!");
+        }
+
+        model.update = update;
+
+        function update(user) {
+            UserService
+                .updateUser(user.id, user)
+                .then(function(users) {
+                    if (!users) {
+                        alert("Username already exists. Please choose another.")
+                    } else {
+                        console.log("Profile updated!");
+                        for (var i in users) {
+                            var user = users[i];
+                            if (user.id == model.user.id) {
+                                model.user = user;
+                                break;
+                            }
+                        }
+                        console.log(model.user);
+                    }
+                });
+        }
+    }
 })();
