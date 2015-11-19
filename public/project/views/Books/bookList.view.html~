@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 </head>
-<body background="../../books.jpg">
+<body>
     <div class="container">
         <hr class="hrclass" />
         <div class="col-lg-3"></div>
