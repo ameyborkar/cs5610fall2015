@@ -14,7 +14,7 @@
             <img src="{{theBook.volumeInfo.img}}"/>
 
             <br/>
-            <button class="btn btn-danger" align="center" ng-click="AddtoBookshelf()">
+            <button class="btn btn-danger pull-center" ng-click="AddtoBookshelf()">
                 <span class="glyphicon glyphicon-heart"></span>
             </button>
         </div>
@@ -27,8 +27,8 @@
             </h4>
             <h4 class="left-padding">Publisher : {{theBook.volumeInfo.publisher}}</h4>
             <h4 class="left-padding">Published Date : {{theBook.volumeInfo.publishedDate}}</h4>
-            <h4 class="left-padding">ISBN-10 : {{theBook.volumeInfo.industryIdentifiers[0].identifier}}</h4>
-            <h4 class="left-padding">ISBN-13 : {{theBook.volumeInfo.industryIdentifiers[1].identifier}}</h4>
+            <h4 class="left-padding">ISBN-13 : {{theBook.volumeInfo.industryIdentifiers[0].identifier}}</h4>
+            <h4 class="left-padding">ISBN-10 : {{theBook.volumeInfo.industryIdentifiers[1].identifier}}</h4>
             <h4 class="left-padding text-capitalize">Language : {{theBook.volumeInfo.language}}</h4>
             <h4 class="left-padding">Page Count : {{theBook.volumeInfo.pageCount}} pages</h4>
             <br/>

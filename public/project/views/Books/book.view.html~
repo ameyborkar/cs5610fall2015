@@ -14,7 +14,7 @@
             <img src="{{theBook.volumeInfo.img}}"/>
 
             <br/>
-            <button class="btn btn-danger" ng-click="AddtoBookshelf()">
+            <button class="btn btn-danger pull-center" ng-click="AddtoBookshelf()">
                 <span class="glyphicon glyphicon-heart"></span>
             </button>
         </div>
