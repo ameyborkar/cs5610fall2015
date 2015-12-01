@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test'
-mongoose.connect(connectionString);
+var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/cs5610'
+mongoose.createConnection(connectionString);
 
 //Book Schema
 var BookSchema = new mongoose.Schema({
