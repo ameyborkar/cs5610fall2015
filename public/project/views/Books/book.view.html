@@ -6,7 +6,8 @@
     <!--Book Detail -->
    <div class="container">
    <br/>
-    <h1>Book Details</h1>
+   <h1>Book Details</h1>
+   <br/> 
          <div class="col-lg-2">
           
             <img style='padding-left : 10px' src="{{theBook.volumeInfo.imageLinks.thumbnail}}"/>
@@ -18,12 +19,12 @@
                 <span class="glyphicon glyphicon-heart"></span>
             </button>
         </div>
-        <div class="col-lg-8" ng-show={{theBook}} style='background: rgba(204, 204, 204, 0.75)'>
+        <div class="col-lg-8" ng-show={{theBook}} style='background: rgba(204, 204, 204, 0.95)'>
             <h3>
                 {{theBook.volumeInfo.title}}
             </h3>
             <h4 class="left-padding"> 
-                Authors : <li class="left-padding" ng-repeat="author in theBook.volumeInfo.authors"> {{author}}</li>
+                Authors :<br> <li class="left-padding" ng-repeat="author in theBook.volumeInfo.authors"> {{author}}</li>
             </h4>
             <h4 class="left-padding">Publisher : {{theBook.volumeInfo.publisher}}</h4>
             <h4 class="left-padding">Published Date : {{theBook.volumeInfo.publishedDate}}</h4>
