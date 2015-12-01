@@ -1,8 +1,7 @@
 
 module.exports = function(app, formModel) {
 	
-	//returns an array of fields belonging to the form with
-	//the specified id
+	//returns an array of fields by id
 	app.get("/api/assignment/form/:formId/field", function(req, res) {
 		var formId = req.params.formId;
 		formModel.getFormFields(formId).then(function(response){
@@ -10,8 +9,7 @@ module.exports = function(app, formModel) {
 		});
 	});
 	
-	//returns the field object with the specified id and belonging to the
-	//specified form
+	//returns the field object for certain form by id
 	app.get("/api/assignment/form/:formId/field/:fieldId", function(req, res) {
 		var formId = req.params.formId;
 		var fieldId = req.params.fieldId;
@@ -20,8 +18,7 @@ module.exports = function(app, formModel) {
 		});
 	});
 	
-	//removes the field object with the speicified id and belonging to the
-	//specified form
+	//removes the field by id
 	app.delete("/api/assignment/form/:formId/field/:fieldId", function(req, res) {
 		var formId = req.params.formId;
 		var fieldId = req.params.fieldId;
@@ -30,8 +27,7 @@ module.exports = function(app, formModel) {
 		});
 	});
 	
-	//creates a new field whose properties are the same as the field object
-	//embedded in the request body
+	//create a new field 
 	app.post("/api/assignment/form/:formId/field", function(req, res) {
 		var formId = req.params.formId;
 		var field = req.body;
@@ -40,7 +36,7 @@ module.exports = function(app, formModel) {
 		});
 	});
 	
-	//updates the field object with the specified id
+	//updates the field object by id
 	app.put("/api/assignment/form/:formId/field/:fieldId", function(req, res) {
 		var formId = req.params.formId;
 		var fieldId = req.params.fieldId;

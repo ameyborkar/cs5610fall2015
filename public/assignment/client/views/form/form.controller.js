@@ -12,13 +12,11 @@
 		model.currentUser = currentUser;
 		model.selectedFormIndex = -1;
 		
-		//Functions that are available to the UI
 		model.addForm = addForm;
 		model.updateForm = updateForm;
 		model.deleteForm = deleteForm;
 		model.selectForm = selectForm;
 
-		//Find and set all the forms for the current user
 		setUserForms();
 		
 		function setUserForms(){

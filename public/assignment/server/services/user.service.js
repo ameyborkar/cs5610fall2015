@@ -1,7 +1,7 @@
 
 module.exports = function(app, userModel) {
 	
-	//create new user
+	//create a new user
 	app.post("/api/assignment/user", function(req, res) {
 		var user = req.body;
 		userModel.createUser(user).then(function(response){
@@ -9,8 +9,7 @@ module.exports = function(app, userModel) {
 		});
 	});
 		
-	//return a specific user by credentials or by username if they are provided
-	//otherwise return all users
+	//return a specific user or all users depending on the input to this rest call
 	app.get("/api/assignment/user", function(req, res) {
 		if (req.query.username && req.query.password) {
 			var credentials = {"username":req.query.username, "password":req.query.password};
@@ -28,7 +27,7 @@ module.exports = function(app, userModel) {
 		}
 	});
 	
-	//find user by id
+	//find by id
 	app.get("/api/assignment/user/:id", function(req, res) {
 		var id = req.params.id;
 		userModel.findUserById(id).then(function(response){
@@ -36,7 +35,7 @@ module.exports = function(app, userModel) {
 		});
 	});
 	
-	//update user by id
+	//update by id
 	app.put("/api/assignment/user/:id", function(req, res) {
 		var id = req.params.id;
 		var user = req.body;
@@ -45,7 +44,7 @@ module.exports = function(app, userModel) {
 		});
 	});
 	
-	//delete user by id
+	//delete by id
 	app.delete("/api/assignment/user/:id", function(req, res) {
 		var id = req.params.id;
 		userModel.deleteUser(id).then(function(response){
