@@ -8,7 +8,7 @@
     <br/>
     <h1>Book Details</h1>
          <div class="col-lg-2">
-             <br/> <br/> 
+             <br/> 
             <img style='padding-left : 10px' src="{{theBook.volumeInfo.imageLinks.thumbnail}}"/>
             <br/>
             <img src="{{theBook.volumeInfo.img}}"/>
