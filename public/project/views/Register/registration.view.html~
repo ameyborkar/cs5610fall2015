@@ -4,6 +4,8 @@
     <title>Register</title>
 </head>
 <body>
+    <hr />
+    <hr />
     <div class="container">
         <form class="form-signin">
             <h2 class="form-signin-heading">Please Register</h2>

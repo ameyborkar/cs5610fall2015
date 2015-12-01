@@ -20,7 +20,7 @@
         <br />
        <div class="input-group col-lg-4">
             <span class="input-group-btn">
-                <button ng-show="user.username != currentUser.username" ng-click="follow(user.username)" class="btn btn-warning" type="button">Follow {{user.username}}</button>
+                <button ng-show "user.username!=currentUser.username" ng-click="follow(user.username)" class="btn btn-warning" type="button">Follow {{user.username}}</button>
             </span>
         </div>
     </div>
