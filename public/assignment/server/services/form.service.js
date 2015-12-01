@@ -1,28 +1,52 @@
 
 module.exports = function(app, formModel) {
 	
+	//returns an array of forms belonging to specified user
 	app.get("/api/assignment/user/:userId/form", function(req, res) {
 		var userId = req.params.userId;
-		res.json(formModel.findUserForms(userId));
-	});
-	app.get("/api/assignment/form/:formId", function(req, res) {
-		var formId = req.params.formId;
-		res.json(formModel.findFormById(formId));
-	});
-	app.delete("/api/assignment/form/:formId", function(req, res) {
-		var formId = req.params.formId;
-		res.json(formModel.deleteForm(formId));
+		formModel.findUserForms(userId).then(function(response){
+			res.json(response);
+		});
 	});
 	
+	//returns the form object with the specified id
+	app.get("/api/assignment/form/:formId", function(req, res) {
+		var formId = req.params.formId;
+		formModel.findFormById(formId).then(function(response){
+			res.json(response);
+		});
+	});
+	
+	//removes the form object with the specified id
+	app.delete("/api/assignment/form/:formId", function(req, res) {
+		var formId = req.params.formId;
+		formModel.deleteForm(formId).then(function(response){
+			res.json(response);
+		});
+	});
+	
+	//creates a new form
 	app.post("/api/assignment/user/:userId/form", function(req, res) {
 		var userId = req.params.userId;
 		var form = req.body;
-		res.json(formModel.createForm(form, userId));
+		formModel.createForm(form, userId).then(function(response){
+			res.json(response);
+		});
 	});
 	
+	//updates the form object with the specified id
 	app.put("/api/assignment/form/:formId", function(req, res) {
 		var formId = req.params.formId;
 		var form = req.body;
-		res.json(formModel.updateForm(formId, form));
+		formModel.updateForm(formId, form).then(function(response){
+			res.json(response);
+		});
+	});
+	
+	//gets all forms
+	app.get("/api/assignment/form", function(req, res) {
+		formModel.findAllForms().then(function(response){
+			res.json(response);
+		});
 	});
 }
