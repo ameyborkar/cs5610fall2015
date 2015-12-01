@@ -51,7 +51,6 @@ app.use(passport.session());
 //public
 app.use(express.static(__dirname + '/public'));
 
-require("./public/assignment/server/app.js")(app);
 
 passport.use(new LocalStrategy(
 function (username, password, done) {
@@ -209,8 +208,9 @@ app.get('/api/users', function (req, res) {
     });
 });
 
+require("./public/assignment/server/app.js")(app);
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3002;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3003;
 
 app.listen(port, ip);
