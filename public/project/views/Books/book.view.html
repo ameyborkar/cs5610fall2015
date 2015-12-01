@@ -6,19 +6,19 @@
     <!--Book Detail -->
    <div class="container">
     <br/>
-    <h1>Book Detail</h1>
-         <div class="col-lg-1">
+    <h1>Book Details</h1>
+         <div class="col-lg-2">
  
             <img style='padding-left : 10px' src="{{theBook.volumeInfo.imageLinks.thumbnail}}"/>
             <br/>
-            <img style='padding-left : 10px' src="{{theBook.volumeInfo.img}}"/>
+            <img style='padding-left : 10px,align : center' src="{{theBook.volumeInfo.img}}"/>
 
             <br/>
             <button class="btn btn-danger pull-right" ng-click="AddtoBookshelf()">
                 <span class="glyphicon glyphicon-heart"></span>
             </button>
         </div>
-        <div class="col-lg-8" ng-show={{theBook}} style="background-color::#eeeeee">
+        <div class="col-lg-8" ng-show={{theBook}} style="background-size: 0 0;">
             <h3>
                 {{theBook.volumeInfo.title}}
             </h3>
