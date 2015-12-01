@@ -11,7 +11,7 @@ module.exports = function(app) {
 	        process.env.OPENSHIFT_APP_NAME;
 	}
 
-	mongoose.connect(connectionString);
+	mongoose.createConnection(connectionString);
 	var db = mongoose.connection;
 
 	var userModel = require('./models/user.model.js')(db, mongoose);
