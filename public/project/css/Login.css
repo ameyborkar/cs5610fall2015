@@ -77,9 +77,9 @@
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td {
-    background-color: #CCC;
+    background-color: #666633;
 }
 
 .table-striped > tbody > tr:nth-child(even) > td {
-    background-color: #CCC;
+    background-color: #CCCC99;
 }
