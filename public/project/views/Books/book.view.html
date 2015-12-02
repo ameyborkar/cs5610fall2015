@@ -26,8 +26,8 @@
             <h4 class="left-padding"> 
                 Authors :<br> <li class="left-padding" ng-repeat="author in theBook.volumeInfo.authors"> {{author}}</li>
             </h4>
- 	    <h4 class="left-padding">Ratings : {{theBook.averageRating}}</h4>
-	    <h4 class="left-padding">Ratings Count : {{theBook.ratingsCount}}</h4>
+ 	    <h4 class="left-padding" ng-show={{theBook.volumeInfo.averageRating}} >Ratings : {{theBook.volumeInfo.averageRating}}</h4>
+	    <h4 class="left-padding" ng-show={{theBook.volumeInfo.ratingsCount}} >Ratings Count : {{theBook.volumeInfo.ratingsCount}}</h4>
             <h4 class="left-padding">Publisher : {{theBook.volumeInfo.publisher}}</h4>
             <h4 class="left-padding">Published Date : {{theBook.volumeInfo.publishedDate}}</h4>
             <h4 class="left-padding">ISBN-13 : {{theBook.volumeInfo.industryIdentifiers[0].identifier}}</h4>

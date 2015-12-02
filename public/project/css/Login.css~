@@ -84,11 +84,11 @@
     background-color: #CCC;
 }
 
-.navbar-default {
+.navbar-inverse {
     background-color: #CCCC99;
     border-color: #E7E7E7;
 }
 /* title */
-.navbar-default .navbar-brand {
+.navbar-inverse .navbar-brand {
     color: #777;
 }
