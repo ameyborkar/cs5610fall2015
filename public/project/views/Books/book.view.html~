@@ -24,14 +24,19 @@
                 {{theBook.volumeInfo.title}}
             </h3>
             <h4 class="left-padding"> 
-                Authors : <li class="left-padding" ng-repeat="author in theBook.volumeInfo.authors"> {{author}}</li>
+                Authors :<br> <li class="left-padding" ng-repeat="author in theBook.volumeInfo.authors"> {{author}}</li>
             </h4>
+ 	    <h4 class="left-padding">Ratings : {{theBook.averageRating}}</h4>
+	    <h4 class="left-padding">Ratings Count : {{theBook.ratingsCount}}</h4>
             <h4 class="left-padding">Publisher : {{theBook.volumeInfo.publisher}}</h4>
             <h4 class="left-padding">Published Date : {{theBook.volumeInfo.publishedDate}}</h4>
             <h4 class="left-padding">ISBN-13 : {{theBook.volumeInfo.industryIdentifiers[0].identifier}}</h4>
             <h4 class="left-padding">ISBN-10 : {{theBook.volumeInfo.industryIdentifiers[1].identifier}}</h4>
             <h4 class="left-padding text-capitalize">Language : {{theBook.volumeInfo.language}}</h4>
             <h4 class="left-padding">Page Count : {{theBook.volumeInfo.pageCount}} pages</h4>
+"averageRating": 3.5,
+  "": 136
+
             <br/>
             <p class="left-padding">{{theBook.volumeInfo.description}}</p>
         </div>
