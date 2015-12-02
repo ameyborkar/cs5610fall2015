@@ -83,3 +83,12 @@
 .table-striped > tbody > tr:nth-child(even) > td {
     background-color: #CCC;
 }
+
+.navbar-default {
+    background-color: #CCCC99;
+    border-color: #E7E7E7;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #777;
+}
