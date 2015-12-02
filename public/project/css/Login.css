@@ -80,3 +80,11 @@ table.table.table-striped tr.found td {
 }
 .odd { background-color: #000; }
 .even { background-color: #CCC; }
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+    background-color: #000;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+    background-color: #CCC;
+}
