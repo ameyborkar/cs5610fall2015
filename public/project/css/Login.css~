@@ -75,4 +75,8 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+table.table.table-striped tr.found td {
+    background-color:#CECBCB;
+}
+.odd { background-color: #000; }
+.even { background-color: rgba(204, 204, 204, 0.95); }
