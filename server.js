@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/cs5610'
-mongoose.createConnection(connectionString);
+mongoose.connect(connectionString);
 
 //Book Schema
 var BookSchema = new mongoose.Schema({
@@ -208,6 +208,14 @@ app.get('/api/users', function (req, res) {
     });
 });
 
+        var db = mongoose.connection;
+
+	var userModel = require('./models/user.model.js')(db, mongoose);
+	require('./services/user.service.js')(app, userModel);
+	
+	var formModel = require('./models/form.model.js')(db, mongoose);
+	require('./services/form.service.js')(app, formModel);
+	require('./services/field.service.js')(app, formModel);
 require("./public/assignment/server/app.js")(app);
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
