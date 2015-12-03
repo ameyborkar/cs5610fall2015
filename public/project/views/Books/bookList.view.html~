@@ -22,7 +22,7 @@
                 <thead>
                     <tr>
                         <th/>
-                        <th class="text-center" style='font-size:large'>Title</th>
+                        <th class="text-center" style='font-size:large,background-color : rgb((130,196,103)'>Title</th>
                         <th class="text-center" style='font-size:large'>Authors</th>
 			<th/>
                     </tr>
