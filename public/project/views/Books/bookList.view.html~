@@ -21,10 +21,10 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th/>
-                        <th class="text-center" style='font-size:large,background-color : rgb((130,196,103)'>Title</th>
-                        <th class="text-center" style='font-size:large'>Authors</th>
-			<th/>
+                        <th style="background-color : #F1FAC0"></th>
+                        <th class="text-center" style="background-color : #F1FAC0">Title</th>
+                        <th class="text-center" style="background-color : #F1FAC0">Authors</th>
+			<th style="background-color : #F1FAC0"></th>
                     </tr>
                 </thead>
                 <tbody>
