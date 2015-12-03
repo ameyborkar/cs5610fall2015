@@ -81,12 +81,12 @@
 }
 
 .table-striped > tbody > tr:nth-child(even) > td {
-    background-color: #CCC;
+    background-color: #FF6600;
 }
 
 .navbar-default {
     background-color: #CCCC99;
-    border-color: #E7E7E7;
+    border-color: #CCCC99;
 }
 /* title */
 .navbar-default .navbar-brand {

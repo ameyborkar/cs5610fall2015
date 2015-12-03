@@ -20,9 +20,14 @@
         <br />
        <div class="input-group col-lg-4">
             <span class="input-group-btn">
-             <button ng-click="follow(user.username)" class="btn btn-warning" type="button">Follow {{user.username}}</button>
+             <button ng-show="user.username != currentUser.username && currentUser.followings.indexOf(user.username) == -1" ng-click="follow(user.username)" class="btn btn-warning" type="button">Follow {{user.username}}</button>
 
              <button ng-show="currentUser.followings.indexOf(user.username) > -1" " class="btn btn-warning" type="button">Following </button>
+           
+            <input ng-model="person" type="text" class="form-control" placeholder="Follow the user ... (username)">
+            <button ng-show= "user.username == currentUser.username" ng-click="follow()" class="btn btn-warning" type="button">Follow</button>
+            
+
             </span>
         </div>
     </div>

@@ -11,7 +11,7 @@
             <div class="input-group">
                 <input ng-model="search" type="text" class="form-control" placeholder="Seach for ... ( Title / Author / Publisher / ISBN)">
                 <span class="input-group-btn">
-                    <button ng-click="searchBook()" class="btn btn-default" type="button">Find</button>
+                    <button ng-click="searchBook()" class="btn btn-warning" type="button">Search</button>
                 </span>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         <td class="text-center" ng-click="BookDetail(book)">
                             <a class="btn btn-link" href="#/book">{{book.volumeInfo.title}}</a>
                         </td>
-                        <td>
+                        <td style = "width:100%">
                             <li class="text-center" ng-repeat="author in book.volumeInfo.authors">{{author}}
                             </li>
                         </td>
