@@ -77,11 +77,11 @@
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td {
-    background-color: #FFFF66;
+    background-color: #BCDD11;
 }
 
 .table-striped > tbody > tr:nth-child(even) > td {
-    background-color: #B0C4DE;
+    background-color: #F1FAC0;
 }
 
 .navbar-default {
