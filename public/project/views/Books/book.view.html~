@@ -12,12 +12,12 @@
           
             <img style='padding-left : 10px' src="{{theBook.volumeInfo.imageLinks.thumbnail}}"/>
             <br/>
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-danger" ng-click="AddtoBookshelf()">
                 <span class="glyphicon glyphicon-heart"></span>
             </button>
         </div>
-        <div class="col-lg-8" ng-show={{theBook}} style='background: rgba(204, 204, 204, 0.95)'>
+        <div class="col-lg-8" ng-show={{theBook}} style='background: rgba(241, 250, 192, 0.90)'>
             <h3>
                 {{theBook.volumeInfo.title}}
             </h3>
