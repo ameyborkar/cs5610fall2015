@@ -20,12 +20,7 @@
         <div ng-show="books.length > 0">
             <table class="table" style= "background-color:rgba(225,237,223,0.90)">
                 <thead>
-                    <tr>
-                        <th style="background-color : rgba(225,237,223,0.90)"></th>
-                        <th class="text-center" style="background-color : rgba(225,237,223,0.90)">Title</th>
-                        <th class="text-center"style="background-color : rgba(225,237,223,0.90)">Authors</th>
-			<th style="background-color : rgba(225,237,223,0.90)"></th>
-                    </tr>
+                 
                 </thead>
                 <tbody>
                     <tr ng-repeat="book in books">
