@@ -20,6 +20,7 @@
         <br />
 
        <input style = "width : 16%" ng-show= "user.username == currentUser.username" ng-model="person" type="text" class="form-control" placeholder="Enter username to follow">
+        <br/>
      <button ng-show= "user.username == currentUser.username" ng-click="follow(person)" class="btn btn-warning" type="button">Follow</button> 
 
        <div class="input-group col-lg-4">
@@ -60,7 +61,7 @@
             <div class="panel-heading">
                 <h3 class="text-center panel-title text-capitalize">Following</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="background-color : #F1FAC0">
                 <li ng-repeat="following in user.followings track by $index">
                     <a class="btn btn-link"  ng-click="checkFollow(following)">{{following}}</a>
                     <button class="btn btn-danger pull-right" ng-click="RemoveFollowing($index)">
@@ -77,7 +78,7 @@
             <div class="panel-heading">
                 <h3 class="text-center panel-title text-capitalize">Followers</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="background-color : #F1FAC0">
                 <li ng-repeat="follower in user.followers track by $index">
                     <a class="btn btn-link" ng-click="checkFollow(follower)">{{follower}}</a>
                     <button class="btn btn-danger pull-right" ng-click="RemoveFollower($index)">
