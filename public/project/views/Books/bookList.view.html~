@@ -18,13 +18,13 @@
         <br/>
 	<br/>		
         <div ng-show="books.length > 0">
-            <table class="table table-striped">
+            <table class="table" style= "background-color:rgba(225,237,223,0.90)">
                 <thead>
                     <tr>
-                        <th style="background-color : rgb(194,212,216,0.90)"></th>
-                        <th class="text-center" style="background-color : rgb(194,212,216,0.90)">Title</th>
-                        <th class="text-center" style="background-color : rgb(194,212,216,0.90)">Authors</th>
-			<th style="background-color : rgb(194,212,216,0.90)"></th>
+                        <th style="background-color : rgba(225,237,223,0.90)"></th>
+                        <th class="text-center" style="background-color : rgba(225,237,223,0.90)">Title</th>
+                        <th class="text-center"style="background-color : rgba(225,237,223,0.90)">Authors</th>
+			<th style="background-color : rgba(225,237,223,0.90)"></th>
                     </tr>
                 </thead>
                 <tbody>
