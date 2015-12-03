@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-    <div class="col-lg-13" align="center">
+    <div class="col-lg-3" align="center">
      <br />
   
        <h2 class="text-capitalize" align="center">{{user.username}}'s Profile</h2>
@@ -35,14 +35,14 @@
             </span>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <br />
 
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="text-center panel-title text-capitalize">Favourite Books</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="background-color : #F1FAC0">
                 <ul ng-repeat="book in user.books">
                     <li>
                         <a class="comment-text" ng-click="BookDetail(book)" class="btn btn-link" href="#/book">{{book.title}}</a>
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <br />
         <div class="panel panel-info">
             <div class="panel-heading">
