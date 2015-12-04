@@ -200,6 +200,14 @@ app.get('/api/users/:username', function (req, res) {
     });
 });
 
+//find by searchString
+app.get('/api/users/all/:searchString', function (req, res) {
+    var name = req.params.searchString;
+    UserModel.findOne({ username: new RegExp(name) }, function (err, doc) {
+        res.json(doc);
+    });
+});
+
 
 //fand all
 app.get('/api/users', function (req, res) {

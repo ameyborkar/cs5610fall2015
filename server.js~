@@ -200,6 +200,14 @@ app.get('/api/users/:username', function (req, res) {
     });
 });
 
+//find by searchString
+app.get('/api/users/all/:searchString', function (req, res) {
+    var name = req.params.searchString;
+    UserModel.findOne({ username: new RegExp(name) }, function (err, doc) {
+        res.json(doc);
+    });
+});
+
 
 //fand all
 app.get('/api/users', function (req, res) {
@@ -208,7 +216,7 @@ app.get('/api/users', function (req, res) {
     });
 });
 
-require("./public/assignment/server/app.js")(app);
+require("./public/assignment/server/app.js")(app,mongoose,db);
 
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3003;
