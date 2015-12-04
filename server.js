@@ -203,7 +203,7 @@ app.get('/api/users/:username', function (req, res) {
 //find by searchString
 app.get('/api/users/all/:searchString', function (req, res) {
     var name = req.params.searchString;
-    UserModel.findOne({ username: new RegExp(name) },{ username: 1}, function (err, doc) {
+    UserModel.findOne({ username: new RegExp(name) },{ username: 1,_id : 0}, function (err, doc) {
         res.json(doc);
     });
 });
