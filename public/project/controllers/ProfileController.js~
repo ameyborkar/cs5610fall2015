@@ -43,4 +43,10 @@ app.controller("ProfileController", function ($scope, $http, $rootScope, BookSer
             $scope.user = response;
         });
     }
+
+    $scope.getUsers = function (searchString) {
+        $http.get('/api/users/all/' + searchString).success(function (response) {
+            $scope.user = response;
+        });
+    }
 });

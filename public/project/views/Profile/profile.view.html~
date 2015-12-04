@@ -21,7 +21,7 @@
 
        <input style = "width : 71%" ng-show= "user.username == currentUser.username" ng-model="person" type="text" class="form-control" placeholder="Enter username to follow">
         <br/>
-     <button ng-show= "user.username == currentUser.username" ng-click="follow(person)" class="btn btn-warning" type="button">Follow</button> 
+     <button ng-show= "user.username == currentUser.username" ng-click="getUsers(person)" class="btn btn-warning" type="button">Search</button> 
 
        <div class="input-group col-lg-4">
             <span class="input-group-btn">
@@ -92,5 +92,22 @@
         </div>
     </div>
   </div>
+
+   <div class="col-lg-3">
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="text-center panel-title text-capitalize">Users</h3>
+            </div>
+            <div class="panel-body" style="background-color : rgba(225,237,223,0.90)">
+                <li ng-repeat="username in usernames track by $index">
+                    <a class="btn" >{{username}}</a>
+                    <button ng-click="getUsers(username)" class="btn btn-warning" type="button">Follow</button> 
+                    <hr />
+                </li>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
