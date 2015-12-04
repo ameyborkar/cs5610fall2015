@@ -38,9 +38,9 @@
         <br />
         
             <div class="panel-body" ng-show = "user.username == currentUser.username && usernames!=null" style="background-color : rgba(225,237,223,0.90)">
-                <li ng-repeat="user in usernames track by $index">
-                    <a class="btn btn-link" ng-click="checkFollow(user.username)" >{{user.username}}</a>
-                    <button ng-click="follow(user.username)" class="btn btn-warning pull-right" type="button">Follow</button> 
+                <li ng-repeat="u in usernames track by $index">
+                    <a class="btn btn-link" ng-click="checkFollow(u.username)" >{{u.username}}</a>
+                    <button ng-click="follow(u.username)" class="btn btn-warning pull-right" type="button">Follow</button> 
                     <hr />
                 </li>
             </div>
