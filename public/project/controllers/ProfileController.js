@@ -7,10 +7,7 @@ app.controller("ProfileController", function ($scope, $http, $rootScope, BookSer
 
     $scope.BookDetail = function (book) {
 
-        var fakeBook = {
-            volumeInfo: book
-        }
-        BookService.BookDetail(fakeBook);
+        BookService.BookDetail(book);
     }
 
     $scope.RemoveBook = function (index) {
