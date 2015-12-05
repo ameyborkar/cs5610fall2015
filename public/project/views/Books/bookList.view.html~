@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="book in books">
-                        <td>
+                        <td style = "width : 25%">
                             <button class="btn btn-danger" ng-click="AddtoBookshelf(book)">
                                 <span class="glyphicon glyphicon-heart"></span>
                             </button>
@@ -41,6 +41,7 @@
  			    <h5 class="left-padding " ng-show="book.volumeInfo.pageCount!=null"> {{book.volumeInfo.pageCount}} pages</h4>
                         </td>
                         <td style = "width:100%">
+  			    
                             <li class="text-center" ng-repeat="author in book.volumeInfo.authors">{{author}}
                             </li>
 			    <br/>
