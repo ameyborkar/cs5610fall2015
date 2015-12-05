@@ -36,17 +36,17 @@
      			     <br/>
                             <h5 class="left-padding text-capitalize">{{book.volumeInfo.language}}</h4>
   			     <br/>
- 			    <h5 class="left-padding ">{{book.volumeInfo.averageRating}}</h4>
+ 			    <h5 class="left-padding " ng-show="book.volumeInfo.averageRating!=null">{{book.volumeInfo.averageRating}}</h4>
                              <br/>
- 			    <h5 class="left-padding "> {{book.volumeInfo.pageCount}} pages</h4>
+ 			    <h5 class="left-padding " ng-show="book.volumeInfo.pageCount!=null"> {{book.volumeInfo.pageCount}} pages</h4>
                         </td>
                         <td style = "width:100%">
                             <li class="text-center" ng-repeat="author in book.volumeInfo.authors">{{author}}
                             </li>
 			    <br/>
- 			    <h5 class="left-padding ">{{book.volumeInfo.publisher}}</h4>
+ 			    <h5 class="left-padding text-center ">{{book.volumeInfo.publisher}}</h4>
                             <br/>
- 			    <h5 class="left-padding "> {{book.volumeInfo.publishedDate}}</h4>
+ 			    <h5 class="left-padding  text-center"> {{book.volumeInfo.publishedDate}}</h4>
 
                         </td>
                         <td class="pull-right">
