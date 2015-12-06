@@ -1,6 +1,6 @@
 ﻿//controller for home
-app.controller("BookListSearchController", function ($scope, $http, $rootScope, BookService) {
-
+app.controller("BookListSearchController", function ($scope,$location,$http, $rootScope, BookService) {
+    $scope.$location = $location;
     $scope.searchBook = function () {
         BookService.searchBooks($scope.search, function (response) {
             $scope.books = response.items;
