@@ -3,7 +3,7 @@ app.controller("BookListSearchController", function ($scope,$http, $rootScope, B
    
     $scope.searchBook = function () {
         BookService.searchBooks($scope.search, function (response) {
-            $scope.books = response.items;
+            $$rootScope.books = response.items;
         });
 
     }
