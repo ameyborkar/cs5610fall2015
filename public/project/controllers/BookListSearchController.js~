@@ -6,7 +6,6 @@ app.controller("BookListSearchController", function ($scope,$http, $rootScope, B
             $scope.books = response.items;
         });
 
-        $location.path("/searchresults");
     }
 
     $scope.BookDetail = function (book) {
